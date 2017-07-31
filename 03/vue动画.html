@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="bower_components/vue/dist/vue.js"></script>
+	<style>
+		#div1{
+			width:100px;
+			height:100px;
+			background: red;
+		}
+
+		.fade-transition{
+			transition: 1s all ease;	
+		}
+		.fade-enter{
+			opacity: 0;
+		}
+		.fade-leave{
+			opacity: 0;
+			transform: translateX(200px);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="按钮" @click="toggle">
+		<div id="div1" v-show="bSign" transition="fade"></div>
+		 0、 动画的本质就是 css3的 transtion 或者 animation
+         1、 首先要给元素加上 transition="XXX"
+         2、  .fade-transition{
+                    填写运动的时间 和那些属性要变化
+					transition: 1s all ease;	
+				}
+			  .fade-enter{
+                     进入的动画
+					opacity: 0; （这个地方我们感觉应该是0 很矛盾，老师也很矛盾）
+				}
+			  .fade-leave{
+			         离开的动画
+					opacity: 0;
+					transform: translateX(200px);
+				}
+         
+	</div>
+
+	<script>
+		new Vue({
+			el:'#box',
+			data:{
+				bSign:false
+			},
+			methods:{
+				/*toggle:function(){
+					alert(1);
+				}*/ 
+				//下面的是 ES6的语法
+				toggle(){
+					this.bSign=!this.bSign;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

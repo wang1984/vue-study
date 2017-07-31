@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="bower_components/vue/dist/vue.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+	<div id="box">
+		 
+	</div>
+
+	<script>
+		var Aaa=Vue.extend({
+			template:'<h3>我是标题3</h3>'
+		});
+		var a=new Aaa();
+		 //这个 实例a  就类似于 实例vm
+        /*
+          一般情况下我们不用上面的那种形式去创建 vue实例
+          通常我们使用下面的方式去创建vue实例
+         */     
+
+		var vm=new Vue({
+			el:'#box',
+			data:{
+			 
+			}
+		});
+
+	</script>
+</body>
+</html>

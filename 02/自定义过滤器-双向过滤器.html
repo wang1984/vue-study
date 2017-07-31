@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+    </style>
+    <script src="vue.js"></script>
+    <script>
+        //<h2>welcome</h2>
+        Vue.filter('filterHtml',{
+            // 当针对 v-model 进行自定义过滤器时要使用双向过滤器
+            // 正常情况下是 model 到 view 的过滤
+            // 现在的需求是 view  到 model 的过滤  所以要使用双向过滤器
+            // read 是 model 到 view的形式
+            // write 是 view 到 model的形式
+            read:function(input){ //model -> view （默认就是这种形式）
+                alert(1);
+                return input.replace(/<[^<]+>/g,'');
+            },
+            write:function(val){ //view -> model
+                console.log(val);
+                return val;
+            }
+        });
+        window.onload=function(){
+            var vm=new Vue({
+                data:{
+                    msg:'<strong>welcome</strong>'
+                }
+            }).$mount('#box');
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="msg | filterHtml">
+        <br>
+        {{{msg}}}
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

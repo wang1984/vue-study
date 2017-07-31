@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="bower_components/vue/dist/vue.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+	<div id="box">
+		<aaa></aaa>
+	</div>
+
+	<script>
+		var Aaa=Vue.extend({
+			data:{
+				msg:'我是笔筒^_^'
+				/*
+				这样是不对的 组件中的数据 必须是函数返回json对象的形式
+				 */
+			},
+			template:'<h3>{{msg}}</h3>'
+		});
+
+		Vue.component('aaa',Aaa);
+
+
+		var vm=new Vue({
+			el:'#box',
+			data:{
+				bSign:true
+			}
+		});
+
+	</script>
+</body>
+</html>

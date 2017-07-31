@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="./vue1.js"></script>
+</head>
+
+ 
+<body>  
+<div id="example">
+	<ul>
+    <template v-for="(index,item) in list ">
+    	 <li>{{item.xinming}}--{{item.age}}--{{item.sex}}</li>
+    </template>
+    </ul>
+    <hr>
+    <ul>
+    	<li v-for="item in nansheng">{{item.xinming}}--{{item.age}}--{{item.sex}}</li>
+    </ul>
+</div>
+
+<script>
+ 
+new Vue({
+  el: '#example',
+  data:{
+	     	'list':[
+	     		{"xinming":'小明',"age":12,"sex":"男"},							
+	     		{"xinming":'小s',"age":112,"sex":"女"},							
+	     		{"xinming":'小a',"age":121,"sex":"男"},							
+	     		{"xinming":'小x',"age":112,"sex":"女"}							
+	     	]
+	     },
+  computed:{
+  	"nansheng":function(){
+  		return this.list=this.list.filter(function(item){
+  			return item.sex=="男"
+  		})
+  	}
+  }	     
+}) 
+     
+ 
+</script>
+</body>
+</html>
+
+ 

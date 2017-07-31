@@ -1,0 +1,39 @@
+vuex： 集中式管理数据
+   官网：http://vuex.vuejs.org	
+
+cnpm install vuex -D
+
+vuex中提供两个非常靠谱的方法
+
+mapActions    管理所有的事件（将所有的事件进行打包）
+mapGetters    获取数据
+
+
+actions: {
+	简写形式的演变过程
+context是与 store 实例具有相同方法和属性的对象。
+可以通过context.state和context.getters来获取 state 和 getters。
+
+    increment (context) {
+        context.commit('increment')
+    }
+
+    increment ({ commit }) {
+        commit('increment')
+    }
+
+	increment： ({ commit })=>{
+	    commit('increment')
+	}
+
+
+	clickOdd: ({
+		commit,
+		state
+	}) => {
+		if (state.count % 2 == 0) {
+			commit('increment')
+		}
+	},
+
+}

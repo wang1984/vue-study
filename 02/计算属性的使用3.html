@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="vue.js"></script>   
+</head>
+<body>
+    <div id="box">
+        a => {{a}}
+        <br>
+        b => {{b}}
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#box',
+            data:{
+                a:1
+            },
+            computed:{
+                b:{ //当只写一个函数的时候默认是get方法  
+                    //注意 get方法有 return  ； set 方法没有return
+                    get:function(){
+                        return this.a+2;
+                    },
+                    set:function(val){
+                        this.a=val;
+                    }
+                }
+            }
+        });
+        document.onclick=function(){
+            vm.b=10; //单独这样写是不起作用的 。10作为参数传给set方法 他需要借助 set 方法 去修改 a  然后再通过a去修改 b
+
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
